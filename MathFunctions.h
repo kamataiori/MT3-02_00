@@ -50,9 +50,17 @@ bool isColliding(const Sphere& c1, const Sphere& c2);
 // 線形補間関数の定義
 Vector3 lerp(const Vector3& a, const Vector3& b, float t);
 
+// ベクトルの内積を計算する関数
+float DotProduct(const Vector3& v1, const Vector3& v2);
+
+// ベクトルをスカラー倍する関数
+Vector3 Scale(const Vector3& v, float scalar);
+
 Vector3 Project(const Vector3& v1, const Vector3& v2);
 
-Vector3 ClosestPoint(const Vector3& point, const Vector3& segment);
+float CalculateParameterT(const Vector3& v1, const Vector3& v2);
+
+Vector3 ClosestPoint(const Vector3& newpoint, const Vector3& newsegment);
 
 //加算
 Vector3 Add(const Vector3& v1, const Vector3& v2);

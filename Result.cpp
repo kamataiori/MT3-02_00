@@ -25,13 +25,13 @@ void Result::Initialize()
 	sphere2.center.z = 0;
 	sphere2.radius = 0.8f;
 	//distance = isColliding(sphere, sphere2);
-	Segment segment = { {-2.0f,-1.0f,0.0f},{3.0f,2.0f,2.0f} };
-	Vector3 point{ -1.5f,0.6f,0.6f };
-	Vector3 project = Project(Subtract(point, segment.origin), segment.diff);
-	Vector3 closestPoint = ClosestPoint(point, segment.diff);
-	Sphere pointSphere{ point,0.01f };
-	Sphere closestPointSphere{ closestPoint,0.01f };
-
+	Segment segment1 = { {-2.0f,-1.0f,0.0f},{3.0f,2.0f,2.0f} };
+	Vector3 point1{ -1.5f,0.6f,0.6f };
+	Vector3 project1 = Project(Subtract(point1, segment1.origin), segment1.diff);
+	Vector3 closestPoint1 = ClosestPoint(point1, segment1.diff);
+	Sphere pointSphere1{ point1,0.01f };
+	Sphere closestPointSphere1{ closestPoint1,0.01f };
+	
 }
 
 void Result::Updata()
@@ -43,12 +43,12 @@ void Result::Draw()
 {
 
 	DrawGrid(worldviewProjectionMatrix, viewportMatrix);
-	DrawSphere(pointSphere, worldviewProjectionMatrix, viewportMatrix, RED);
-	DrawSphere(closestPointSphere, worldviewProjectionMatrix, viewportMatrix, BLACK);
+	DrawSphere(pointSphere1, worldviewProjectionMatrix, viewportMatrix, RED);
+	DrawSphere(closestPointSphere1, worldviewProjectionMatrix, viewportMatrix, BLACK);
 	
 	//線分の描画
-	Vector3 start = Transform(Transform(segment.origin, worldviewProjectionMatrix), viewportMatrix);
-	Vector3 end = Transform(Transform(Add(segment.origin, segment.diff), viewportMatrix),viewportMatrix);
+	Vector3 start = Transform(Transform(segment1.origin, worldviewProjectionMatrix), viewportMatrix);
+	Vector3 end = Transform(Transform(Add(segment1.origin, segment1.diff), viewportMatrix),viewportMatrix);
 	Novice::DrawLine(int(start.x), int(start.y), int(end.x), int(end.y), WHITE);
 
 	

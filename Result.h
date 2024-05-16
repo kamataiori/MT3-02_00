@@ -24,13 +24,12 @@ public:
 	Sphere sphere{};
 	Sphere sphere2{};
 	//float distance{};
-	Segment segment{};
-	Vector3 point{};
-	Vector3 project{};
-	Vector3 closestPoint{};
-	Sphere pointSphere{};
-	Sphere closestPointSphere{};
-
+	Segment segment1{};
+	Vector3 point1{};
+	Vector3 project1{};
+	Vector3 closestPoint1{};
+	Sphere pointSphere1{};
+	Sphere closestPointSphere1{};
 	Result();
 
 	void Initialize();

@@ -346,14 +346,36 @@ Vector3 lerp(const Vector3& a, const Vector3& b, float t)
 	return result;
 }
 
-Vector3 Project(const Vector3& v1, const Vector3& v2)
-{
-	return Vector3();
+// ベクトルの内積を計算する関数
+float DotProduct(const Vector3& v1, const Vector3& v2) {
+	return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }
 
-Vector3 ClosestPoint(const Vector3& point, const Vector3& segment)
+// ベクトルをスカラー倍する関数
+Vector3 Scale(const Vector3& v, float scalar) {
+	return { v.x * scalar, v.y * scalar, v.z * scalar };
+}
+
+Vector3 Project(const Vector3& v1, const Vector3& v2)
 {
-	return Vector3();
+	float dotProduct = DotProduct(v1, v2);
+	float v2LengthSquared = DotProduct(v2, v2);
+	float scalar = dotProduct / v2LengthSquared;
+	return Scale(v2, scalar);
+}
+
+// 正射影ベクトルを媒介変数表示する際の媒介変数tを計算する関数
+float CalculateParameterT(const Vector3 & v1, const Vector3 & v2) {
+	float dotProduct = DotProduct(v1, v2);
+	float v2LengthSquared = DotProduct(v2, v2);
+	return dotProduct / v2LengthSquared;
+}
+
+Vector3 ClosestPoint(const Vector3& newpoint, const Vector3& newsegment)
+{
+	float t = CalculateParameterT(newpoint, newsegment);
+	Vector3 tb = Scale(newsegment, t);
+	return tb;
 }
 
 Vector3 Add(const Vector3& v1, const Vector3& v2)
