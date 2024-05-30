@@ -3,6 +3,7 @@
 #include "MathFunctions.h"
 #include "struct.h"
 
+
 static const int kWindowWidth = 1280;
 static const int kWindowHeight = 720;
 
@@ -21,6 +22,7 @@ public:
 	Matrix4x4 projectionMatrix{};
 	Matrix4x4 worldviewProjectionMatrix{};
 	Matrix4x4 viewportMatrix{};
+
 	Sphere sphere{};
 	Sphere sphere2{};
 	//float distance{};

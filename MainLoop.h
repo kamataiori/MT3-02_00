@@ -1,5 +1,6 @@
 #pragma once
 #include <Novice.h>
+#include <Result.h>
 
 const char kWindowTitle[] = "学籍番号";
 
@@ -10,6 +11,8 @@ private:
 	//// キー入力結果を受け取る箱
 	char keys[256];
 	char preKeys[256];
+
+	Result* result_;
 
 public:
 

@@ -25,12 +25,12 @@ void Result::Initialize()
 	sphere2.center.z = 0;
 	sphere2.radius = 0.8f;
 	//distance = isColliding(sphere, sphere2);
-	Segment segment1 = { {-2.0f,-1.0f,0.0f},{3.0f,2.0f,2.0f} };
-	Vector3 point1{ -1.5f,0.6f,0.6f };
-	Vector3 project1 = Project(Subtract(point1, segment1.origin), segment1.diff);
-	Vector3 closestPoint1 = ClosestPoint(point1, segment1.diff);
-	Sphere pointSphere1{ point1,0.01f };
-	Sphere closestPointSphere1{ closestPoint1,0.01f };
+	segment1 = { {-2.0f,-1.0f,0.0f},{3.0f,2.0f,2.0f} };
+	 point1 = { -1.5f,0.6f,0.6f };
+	project1 = Project(Subtract(point1, segment1.origin), segment1.diff);
+	closestPoint1 = ClosestPoint(point1, segment1.diff);
+	pointSphere1 = { point1,0.01f };
+	closestPointSphere1 = { closestPoint1,0.01f };
 	
 }
 

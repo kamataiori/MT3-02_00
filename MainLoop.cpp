@@ -12,9 +12,11 @@ MainLoop::MainLoop()
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
+	result_ = new Result;
+
 }
 
-MainLoop::~MainLoop() {}
+MainLoop::~MainLoop() { delete result_; }
 
 void MainLoop::InPut() 
 {
@@ -23,9 +25,10 @@ void MainLoop::InPut()
 	Novice::GetHitKeyStateAll(keys);
 }
 
-void MainLoop::Updata() {}
 
-void MainLoop::Draw() {}
+void MainLoop::Updata() { result_->Updata(); }
+
+void MainLoop::Draw() { result_->Draw(); }
 
 void MainLoop::WholeLoop() 
 {
