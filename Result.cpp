@@ -31,6 +31,8 @@ void Result::Initialize()
 	closestPoint1 = ClosestPoint(point1, segment1.diff);
 	pointSphere1 = { point1,0.01f };
 	closestPointSphere1 = { closestPoint1,0.01f };
+	start = Transform(Transform(segment1.origin, worldviewProjectionMatrix), viewportMatrix);
+	end = Transform(Transform(Add(segment1.origin, segment1.diff), projectionMatrix), viewportMatrix);
 	
 }
 
@@ -47,20 +49,24 @@ void Result::Draw()
 	DrawSphere(closestPointSphere1, worldviewProjectionMatrix, viewportMatrix, BLACK);
 	
 	//線分の描画
-	Vector3 start = Transform(Transform(segment1.origin, worldviewProjectionMatrix), viewportMatrix);
-	Vector3 end = Transform(Transform(Add(segment1.origin, segment1.diff), viewportMatrix),viewportMatrix);
 	Novice::DrawLine(int(start.x), int(start.y), int(end.x), int(end.y), WHITE);
 
 	
 	//ImGui
 	ImGui::Begin("Window");
-	ImGui::DragFloat3("CameraTranslate", &cameraTranslate.x, 0.01f);
+	/*ImGui::DragFloat3("CameraTranslate", &cameraTranslate.x, 0.01f);
 	ImGui::DragFloat3("CameraRotate", &cameraRotate.x, 0.01f);
 	ImGui::DragFloat3("SphereTranslate", &sphere.center.x, 0.01f);
 	ImGui::DragFloat("SphereRadius", &sphere.radius, 0.01f);
 
 	ImGui::DragFloat3("Sphere2Translate", &sphere2.center.x, 0.01f);
-	ImGui::DragFloat("Sphere2Radius", &sphere2.radius, 0.01f);
+	ImGui::DragFloat("Sphere2Radius", &sphere2.radius, 0.01f);*/
+
+	//ImGui::DragFloat3("point", &point1.x, 0.01f);
+
+	ImGui::InputFloat3("Project", &project1.x, "%.3f", ImGuiInputTextFlags_ReadOnly);
+
+
 	ImGui::End();
 
 }

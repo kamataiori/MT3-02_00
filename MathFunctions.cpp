@@ -43,7 +43,8 @@ Vector3 Transform(const Vector3& vector, const Matrix4x4& matrix)
 
 	w = vector.x * matrix.m[0][3] + vector.y * matrix.m[1][3] + vector.z * matrix.m[2][3] + 1.0f * matrix.m[3][3];
 	//assert(w != 0.0f);
-	assert(w != 0.0f);
+	//assert(w != 0.0f);
+
 
 	result.x /= w;
 	result.y /= w;

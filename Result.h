@@ -32,6 +32,10 @@ public:
 	Vector3 closestPoint1{};
 	Sphere pointSphere1{};
 	Sphere closestPointSphere1{};
+
+	Vector3 start;
+	Vector3 end;
+
 	Result();
 
 	void Initialize();

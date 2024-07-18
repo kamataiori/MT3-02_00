@@ -14,6 +14,8 @@ MainLoop::MainLoop()
 
 	result_ = new Result;
 
+	result_->Initialize();
+
 }
 
 MainLoop::~MainLoop() { delete result_; }
